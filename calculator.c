@@ -8,11 +8,11 @@ int main()
    //Variables tipo entero para guardar los inputs
    int a, b, indice, operation;
 
-   //Pointers a las variables de los valores para la opercacion
+   //Pointers a las variables de los valores para la operacion
    int * pA = &a;
    int * pB = &b;
 
-   //Pointers y direcciones
+   //Adress     //Value(Dereferencing)
    //pA = &a    //*pA = a
 
    //Variable float para guardar el resultado de la operacion
@@ -37,35 +37,36 @@ int main()
    //Se guarda el valor ingresado en la direccion de la variable operacion como entero
    scanf("%d", &operation);
 
-   //Se corre una condicional al valor de la variable operacion, para realizar la operacion seleccionada
-   //Suma
-   if(operation==1){
-      //Se utilizan los pointers en lugar de las variables
-      result = *pA + *pB;
-      //Se asigna un valor a la variable indice dependiendo de la operacion
-      indice = 0;
-   }
-   //Resta
-   else if(operation==2){
-      result = *pA - *pB;
-      indice = 1;
-   }
-   //Multiplicacion
-   else if(operation==3){
-      result = *pA * *pB;
-      indice = 2;
-   }
-   //Division
-   else if(operation==4){
-      result = *pA / *pB;
-      indice = 3;
-   }
-   //Se muestra este mensaje si se ingreso una operacion no valida
-   else{
-      printf("Operacion invalida");
-      //Se termina el script
-      exit(0);
-   }
+   //Se corre una condicional switch al valor de la variable operacion, para realizar la operacion seleccionada
+   switch(operation){
+      //Suma
+      case 1:
+         //Se utilizan los pointers en lugar de las variables
+         result = *pA + *pB;
+         //Se asigna un valor a la variable indice dependiendo de la operacion
+         indice = 0;
+         break;
+      //Resta
+      case 2:
+         result = *pA - *pB;
+         indice = 1;
+         break;
+      //Multiplicacion
+      case 3:
+         result = *pA * *pB;
+         indice = 2;
+         break;
+      //Division
+      case 4:
+         result = *pA / *pB;
+         indice = 3;
+         break;
+      //Operacion invalida
+      default:
+         printf("Operacion invalida");
+         //Se termina el script
+         exit(0);
+      }
 
    //Se muestra un mensaje con el resultado y la operacion realizada 
    printf("La %s de los numeros %d y %d es igual a: %.2f", operaciones[indice], *pA, *pB, result);

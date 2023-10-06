@@ -10,9 +10,10 @@ void bin(unsigned n)
     //creates unsigned integer variable i (32 bits)
     unsigned i;
     
-    //(i = 1 << 31) sets the most significant bit of i to 1, by left shifting 1 by 31 positions
+    //(i = 1 << 31) sets the most significant (leftmost) bit of i to 1, by left shifting 1 by 31 positions
     //(i > 0) loop will run as long as i is greater than 0
     //(i = i/2) right shifts the value of i in each iteration
+    //Example of right shifting by dividing by 2: (10000 (16) > 01000 (8) > 00100 (4) > 00010 (2) > 00001 (1))
     for (i = 1 << 31; i > 0; i = i / 2)
         //checks if the bit in the current position is 1 by comparing the input integer n to i with an & operator
         //if the bit value is 1 it prints 1 otherwise it prints 0
